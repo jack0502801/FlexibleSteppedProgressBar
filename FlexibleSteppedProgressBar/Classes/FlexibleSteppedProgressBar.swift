@@ -156,7 +156,7 @@ import CoreGraphics
     
     fileprivate var _progressLineHeight: CGFloat {
         get {
-            if(progressLineHeight == 0.0 || progressLineHeight > _lineHeight) {
+            if(progressLineHeight == 0.0 ) {
                 return _lineHeight
             }
             return progressLineHeight
@@ -333,17 +333,19 @@ import CoreGraphics
             
             let clearCentersPath = self._shapePath(self.centerPoints, aRadius: largerRadius + largerLineWidth, aLineHeight: _lineHeight)
             clearCentersLayer.path = clearCentersPath.cgPath
-            clearCentersLayer.fillColor = viewBackgroundColor.cgColor
+            clearCentersLayer.fillColor = UIColor.clear.cgColor
             
             let bgPath = self._shapePath(self.centerPoints, aRadius: _radius, aLineHeight: _lineHeight)
             backgroundLayer.path = bgPath.cgPath
-            backgroundLayer.fillColor = backgroundShapeColor.cgColor
+            backgroundLayer.fillColor = viewBackgroundColor.cgColor
+            backgroundLayer.strokeColor = backgroundShapeColor.cgColor
+            backgroundLayer.lineWidth = _lineHeight
             
             let progressPath = self._shapePath(self.centerPoints, aRadius: _progressRadius, aLineHeight: _progressLineHeight)
             progressLayer.path = progressPath.cgPath
             progressLayer.fillColor = selectedBackgoundColor.cgColor
             
-            let clearSelectedRadius = fmax(_progressRadius, _progressRadius + selectedOuterCircleLineWidth)
+            let clearSelectedRadius = fmax(_progressRadius, _progressRadius + selectedOuterCircleLineWidth*0.5)
             let clearSelectedPath = self._shapePathForSelected(self.centerPoints[currentIndex], aRadius: clearSelectedRadius)
             clearSelectionLayer.path = clearSelectedPath.cgPath
             clearSelectionLayer.fillColor = viewBackgroundColor.cgColor
