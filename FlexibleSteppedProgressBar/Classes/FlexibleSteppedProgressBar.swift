@@ -26,7 +26,7 @@ import CoreGraphics
 
 }
 
-@IBDesignable open class FlexibleSteppedProgressBar: UIView {
+@IBDesignable public class FlexibleSteppedProgressBar: UIView {
 
     //MARK: - Public properties
 
@@ -203,7 +203,7 @@ import CoreGraphics
     }
 
     /// The component's delegate
-    open weak var delegate: FlexibleSteppedProgressBarDelegate?
+    public weak var delegate: FlexibleSteppedProgressBarDelegate?
 
 
     //MARK: - Private properties
@@ -307,7 +307,7 @@ import CoreGraphics
         self.contentMode = UIView.ContentMode.redraw
     }
 
-    override open func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         super.draw(rect)
 
         if !useLastState {
