@@ -26,7 +26,7 @@ import CoreGraphics
 
 }
 
-@IBDesignable public class FlexibleSteppedProgressBar: UIView {
+@objcMembers @IBDesignable public class FlexibleSteppedProgressBar: UIView {
 
     //MARK: - Public properties
 
